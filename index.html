@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WAZZAAAAPP</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Fontawesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -14,7 +23,55 @@
       referrerpolicy="no-referrer"
     />
   </head>
+  <!-- Body -->
   <body>
+    <!-- Vue target -->
+    <div id="app" class="container flex">
+      <!-- Contacts -->
+      <div class="col-4 flex column">
+        <!-- User Header -->
+        <div class="col-header flex">
+          <!-- User Details -->
+          <div class="flex item align-center">
+            <img class="user-img" src="./img/avatar_io.jpg" alt="" />
+            <h3 class="user-name">Scomparuzo</h3>
+          </div>
+          <div class="flex align-center">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Messages -->
+      <div class="col-8 flex column">
+        <!-- Recipient Header -->
+        <div class="col-header flex item space-between align-center">
+          <div class="flex item align-center">
+            <img class="user-img" src="./img/avatar_io.jpg" alt="" />
+            <div class="recipient-data">
+              <h3 class="recipient-name">Scomparuzo</h3>
+              <p>Ultimo accesso</p>
+            </div>
+          </div>
+          <div class="flex align-center">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <!-- Message Field -->
+        <div class="message-field"></div>
+        <!-- Message Send Input -->
+        <div class="send-text-field flex item align-center">
+          <i class="fa-regular fa-face-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio" />
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+      </div>
+    </div>
+    <!-- Vue -->
+    <!-- Js script -->
     <script src="./js/app.js"></script>
   </body>
 </html>
