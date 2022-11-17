@@ -136,7 +136,7 @@ i {
   min-height: 4rem;
   margin: 1rem;
 }
-.received {
+.sent {
   justify-content: flex-end;
 }
 .message p {
@@ -153,10 +153,10 @@ i {
   font-size: 0.75rem;
   color: #b1b1b1;
 }
-.sent p {
+.received p {
   background-color: white;
 }
-.received p {
+.sent p {
   background-color: #d5f9ba;
 }
 .send-text-field {

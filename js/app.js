@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       activeIndex: 0,
+      sendMessage: "",
       contacts: [
         {
           name: "Michele",
@@ -172,6 +173,22 @@ createApp({
   methods: {
     activeOnClick(index) {
       this.activeIndex = index;
+    },
+    addMessage() {
+      let msgList = this.contacts[this.activeIndex].messages;
+      msgList.push({
+        date: "lol",
+        message: this.sendMessage,
+        status: "sent",
+      });
+      this.sendMessage = "";
+      setTimeout(() => {
+        msgList.push({
+          date: "lol",
+          message: "Ok",
+          status: "received",
+        });
+      }, 1000);
     },
   },
 }).mount("#app");

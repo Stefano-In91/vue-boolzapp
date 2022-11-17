@@ -14,7 +14,7 @@
     />
     <!-- Css -->
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- Fontawesome -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -124,7 +124,12 @@
         <!-- Message Send Input -->
         <div class="send-text-field flex item-70 align-center">
           <i class="fa-regular fa-face-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio" />
+          <input
+            v-model="sendMessage"
+            type="text"
+            placeholder="Scrivi un messaggio"
+            @keyup.enter="addMessage"
+          />
           <i class="fa-solid fa-microphone"> </i>
         </div>
       </div>
