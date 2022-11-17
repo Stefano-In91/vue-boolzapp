@@ -30,10 +30,10 @@
       <!-- Contacts -->
       <div class="col-4 flex column">
         <!-- User Header -->
-        <div class="col-header flex">
+        <div class="col-header flex space-between">
           <!-- User Details -->
           <div class="flex item align-center">
-            <img class="user-img" src="./img/avatar_io.jpg" alt="" />
+            <img class="avatar" src="./img/avatar_io.jpg" alt="" />
             <h3 class="user-name">Scomparuzo</h3>
           </div>
           <div class="flex align-center">
@@ -42,13 +42,29 @@
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
+        <!-- Notification -->
+        <div class="notification flex item align-center">
+          <i class="fa-solid fa-bell-slash"></i>
+          <div>
+            <h3>Ricevi notifiche di nuovi messaggi</h3>
+            <a href="">Attiva notifiche desktop</a>
+          </div>
+        </div>
+        <!-- Search Form -->
+        <form action="submit" class="search-form flex">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <input type="text" placeholder="Cerca chat" />
+        </form>
+        <!-- Contact/Message List -->
       </div>
       <!-- Messages -->
       <div class="col-8 flex column">
         <!-- Recipient Header -->
         <div class="col-header flex item space-between align-center">
           <div class="flex item align-center">
-            <img class="user-img" src="./img/avatar_io.jpg" alt="" />
+            <img class="avatar" src="./img/avatar_io.jpg" alt="" />
             <div class="recipient-data">
               <h3 class="recipient-name">Scomparuzo</h3>
               <p>Ultimo accesso</p>
@@ -63,6 +79,7 @@
         <!-- Message Field -->
         <div class="message-field">
           <div class="container">
+            <!-- Message -->
             <div class="message sent flex align-center">
               <p>messaggio inviato</p>
             </div>

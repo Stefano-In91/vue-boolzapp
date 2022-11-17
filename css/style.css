@@ -53,7 +53,7 @@ body {
   height: 6rem;
   padding: 0.5rem;
 }
-.user-img {
+.avatar {
   border-radius: 50%;
   height: 95%;
   margin-right: 0.75rem;
@@ -70,7 +70,36 @@ i {
   cursor: pointer;
 }
 /*--------------
-  AREAS
+  LEFT SECTION
+--------------*/
+.notification {
+  background-color: #8edafc;
+}
+.notification i {
+  border-radius: 100%;
+  padding: 1rem;
+  margin-right: 0.75rem;
+  color: #8edafc;
+  background-color: white;
+}
+.notification a {
+  color: inherit;
+}
+.search-form {
+  padding: 0.5rem;
+  width: 100%;
+}
+.search-form button,
+.search-form input {
+  background-color: white;
+  border: 1px solid #eaeaea;
+}
+.search-form input {
+  flex-grow: 1;
+  padding-left: 1rem;
+}
+/*--------------
+  RIGHT SECTION
 --------------*/
 .message-field {
   flex-grow: 1;
