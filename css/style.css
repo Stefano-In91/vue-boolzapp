@@ -49,17 +49,18 @@ body {
 /*--------------
   ITEMS
 --------------*/
-.item {
-  height: 6rem;
+.item-70 {
+  height: 4.375rem;
+  padding: 0.5rem;
+}
+.item-80 {
+  height: 5rem;
   padding: 0.5rem;
 }
 .avatar {
   border-radius: 50%;
   height: 95%;
   margin-right: 0.75rem;
-}
-.recipient-data p {
-  color: #b1b1b1;
 }
 i {
   color: #b1b1b1;
@@ -98,6 +99,26 @@ i {
   flex-grow: 1;
   padding-left: 1rem;
 }
+.message-list {
+  flex-grow: 1;
+  background-color: white;
+  overflow-y: scroll;
+}
+.message-list p {
+  color: #b1b1b1;
+}
+.recipient-data p,
+.message-time {
+  color: #b1b1b1;
+}
+.message-time {
+  text-align: right;
+  padding: 0.5rem;
+  align-self: flex-start;
+}
+.selected {
+  background-color: #eaeaea;
+}
 /*--------------
   RIGHT SECTION
 --------------*/
@@ -105,6 +126,7 @@ i {
   flex-grow: 1;
   background-image: url(../img/mine.jpg);
   padding: 1rem;
+  overflow-y: scroll;
 }
 .message-field .container {
   width: 80%;
@@ -133,7 +155,7 @@ i {
 }
 .send-text-field input {
   border: 1px solid #eaeaea;
-  padding: 1.5rem;
+  padding: 1rem;
   width: 80%;
   border-radius: 15px;
 }
