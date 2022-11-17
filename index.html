@@ -22,6 +22,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <!-- Body -->
   <body>
@@ -33,8 +34,8 @@
         <div class="col-header flex space-between">
           <!-- User Details -->
           <div class="flex item-70 align-center">
-            <img class="avatar" src="./img/avatar_io.jpg" alt="" />
-            <h3 class="user-name">Scomparuzo</h3>
+            <img class="avatar" src="./img/avatar_io.jpg" alt="my image" />
+            <h3 class="user-name">Stefania</h3>
           </div>
           <div class="flex align-center">
             <i class="fa-solid fa-circle-notch"></i>
@@ -58,27 +59,27 @@
           <input type="text" placeholder="Cerca chat" />
         </form>
         <!-- Contact/Message List -->
-        <div class="message-list">
+        <div class="message-list flex column">
           <!-- Detail -->
-          <div class="flex align-center space space-between">
+          <div
+            v-for="(contact, index) in contacts"
+            class="flex align-center space space-between"
+            :class="(active === index)?`selected`:``"
+          >
             <div class="flex item-80">
-              <img class="avatar" src="./img/avatar_io.jpg" alt="" />
+              <img
+                class="avatar"
+                :src="'./img/avatar' + contact.avatar + `.jpg`"
+                :alt="contact.name"
+              />
               <div>
-                <h3>Scomparuzo</h3>
-                <p>Ultimo accesso</p>
-              </div>
-              <div class="message-time"></div>
-            </div>
-          </div>
-          <div class="flex align-center space space-between selected">
-            <div class="flex item-80">
-              <img class="avatar" src="./img/avatar_io.jpg" alt="" />
-              <div>
-                <h3>Scomparuzo</h3>
-                <p>Ultimo accesso</p>
+                <h3>{{contact.name}}</h3>
+                <p>{{contact.messages[contact.messages.length - 1].date}}</p>
               </div>
             </div>
-            <div class="message-time">lol</div>
+            <div class="message-time">
+              {{contact.messages[contact.messages.length - 1].date}}
+            </div>
           </div>
         </div>
       </div>
