@@ -135,15 +135,24 @@ i {
 }
 .message {
   min-height: 4rem;
+  margin: 1rem;
 }
 .received {
   justify-content: flex-end;
 }
 .message p {
+  position: relative;
   display: inline-block;
   width: 45%;
   padding: 1rem;
   border-radius: 8px;
+}
+.message span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
+  color: #b1b1b1;
 }
 .sent p {
   background-color: white;

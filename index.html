@@ -88,10 +88,17 @@
         <!-- Recipient Header -->
         <div class="col-header flex item-70 space-between align-center">
           <div class="flex item-70 align-center">
-            <img class="avatar" src="./img/avatar_io.jpg" alt="" />
+            <img
+              class="avatar"
+              :src="'./img/avatar' + contacts[active].avatar + `.jpg`"
+              alt=""
+            />
             <div class="recipient-data">
-              <h3>Scomparuzo</h3>
-              <p>Ultimo accesso</p>
+              <h3>{{contacts[active].name}}</h3>
+              <p>
+                {{contacts[active].messages[contacts[active].messages.length -
+                1].date}}
+              </p>
             </div>
           </div>
           <div class="flex align-center">
@@ -104,11 +111,12 @@
         <div class="message-field">
           <div class="container">
             <!-- Message -->
-            <div class="message sent flex align-center">
-              <p>messaggio inviato</p>
-            </div>
-            <div class="message received flex align-center">
-              <p>messaggio ricevuto</p>
+            <div
+              v-for="message in contacts[active].messages"
+              class="message flex align-center"
+              :class="message.status"
+            >
+              <p>{{message.message}} <span>{{message.date}}</span></p>
             </div>
           </div>
         </div>
