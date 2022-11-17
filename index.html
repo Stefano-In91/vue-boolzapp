@@ -64,7 +64,7 @@
           <div
             v-for="(contact, index) in contacts"
             class="flex align-center space space-between"
-            :class="(active === index)?`selected`:``"
+            :class="(activeIndex === index)?`selected`:``"
             @click="activeOnClick(index)"
           >
             <div class="flex item-80">
@@ -91,14 +91,14 @@
           <div class="flex item-70 align-center">
             <img
               class="avatar"
-              :src="'./img/avatar' + contacts[active].avatar + `.jpg`"
-              alt="contacts[active].name"
+              :src="'./img/avatar' + contacts[activeIndex].avatar + `.jpg`"
+              alt="contacts[activeIndex].name"
             />
             <div class="recipient-data">
-              <h3>{{contacts[active].name}}</h3>
+              <h3>{{contacts[activeIndex].name}}</h3>
               <p>
-                {{contacts[active].messages[contacts[active].messages.length -
-                1].date}}
+                {{contacts[activeIndex].messages[contacts[activeIndex].messages.length
+                - 1].date}}
               </p>
             </div>
           </div>
@@ -113,7 +113,7 @@
           <div class="container">
             <!-- Message -->
             <div
-              v-for="message in contacts[active].messages"
+              v-for="message in contacts[activeIndex].messages"
               class="message flex align-center"
               :class="message.status"
             >
