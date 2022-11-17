@@ -169,4 +169,9 @@ createApp({
       ],
     };
   },
+  methods: {
+    activeOnClick(index) {
+      this.active = index;
+    },
+  },
 }).mount("#app");

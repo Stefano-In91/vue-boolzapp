@@ -118,7 +118,6 @@ i {
 }
 .selected {
   background-color: #eaeaea;
-  order: -1;
 }
 /*--------------
   RIGHT SECTION

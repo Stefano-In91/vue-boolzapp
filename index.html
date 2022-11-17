@@ -59,12 +59,13 @@
           <input type="text" placeholder="Cerca chat" />
         </form>
         <!-- Contact/Message List -->
-        <div class="message-list flex column">
+        <div class="message-list">
           <!-- Detail -->
           <div
             v-for="(contact, index) in contacts"
             class="flex align-center space space-between"
             :class="(active === index)?`selected`:``"
+            @click="activeOnClick(index)"
           >
             <div class="flex item-80">
               <img
@@ -91,7 +92,7 @@
             <img
               class="avatar"
               :src="'./img/avatar' + contacts[active].avatar + `.jpg`"
-              alt=""
+              alt="contacts[active].name"
             />
             <div class="recipient-data">
               <h3>{{contacts[active].name}}</h3>
