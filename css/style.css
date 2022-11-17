@@ -75,6 +75,29 @@ i {
 .message-field {
   flex-grow: 1;
   background-image: url(../img/mine.jpg);
+  padding: 1rem;
+}
+.message-field .container {
+  width: 80%;
+  margin: auto;
+}
+.message {
+  min-height: 4rem;
+}
+.received {
+  justify-content: flex-end;
+}
+.message p {
+  display: inline-block;
+  width: 45%;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.sent p {
+  background-color: white;
+}
+.received p {
+  background-color: #d5f9ba;
 }
 .send-text-field {
   justify-content: space-evenly;
