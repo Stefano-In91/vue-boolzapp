@@ -183,3 +183,22 @@ i.close-notif {
   width: 80%;
   border-radius: 15px;
 }
+/*--------------
+  CONTEXT MENU
+--------------*/
+#context-menu {
+  position: fixed;
+  z-index: 99;
+  background-color: #eaeaea;
+  width: 200px;
+  border: 1px solid #b1b1b1;
+}
+#context-menu div {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #b1b1b1;
+  cursor: pointer;
+}
+#context-menu div:hover {
+  background-color: #b1b1b1;
+}

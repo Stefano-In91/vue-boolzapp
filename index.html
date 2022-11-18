@@ -135,6 +135,7 @@
               v-for="message in contacts[activeIndex].messages"
               class="message flex align-center"
               :class="message.status"
+              @contextmenu.prevent="showContextMenu"
             >
               <p>{{message.message}} <span>{{onlyTime(message.date)}}</span></p>
             </div>
@@ -151,6 +152,10 @@
           />
           <i class="fa-solid fa-microphone"> </i>
         </div>
+      </div>
+      <div id="context-menu" v-show="contextMenu">
+        <div>Cancella Messaggio</div>
+        <div>Dettagli Messaggio</div>
       </div>
     </div>
     <!-- Vue -->
