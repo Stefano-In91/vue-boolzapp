@@ -77,19 +77,28 @@ i {
   position: relative;
   background-color: #8edafc;
 }
-.notification i {
-  border-radius: 100%;
-  padding: 1rem;
+.notification .fa-bell-slash {
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  text-align: center;
   margin-right: 0.75rem;
   color: #8edafc;
-  background-color: white;
 }
 i.close-notif {
+  color: black;
   font-size: 0.75rem;
-  padding: 0.25rem;
+  height: 1rem;
+  width: 1rem;
+  line-height: 1rem;
+  text-align: center;
   position: absolute;
   top: -0.3125rem;
   right: -0.3125rem;
+}
+.notification i {
+  border-radius: 100%;
+  background-color: white;
 }
 .notification a {
   color: inherit;
