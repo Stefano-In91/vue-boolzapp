@@ -115,7 +115,7 @@ i.close-notif {
 .message-list p {
   display: block;
   color: #b1b1b1;
-  max-width: 25ch;
+  max-width: 20ch;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -186,19 +186,22 @@ i.close-notif {
 /*--------------
   CONTEXT MENU
 --------------*/
-#context-menu {
+#context-menu,
+#msg-info {
   position: fixed;
   z-index: 99;
   background-color: #eaeaea;
   width: 200px;
   border: 1px solid #b1b1b1;
 }
-#context-menu div {
+#context-menu div,
+#msg-info div {
   padding: 0.5rem;
   text-align: center;
   border: 1px solid #b1b1b1;
   cursor: pointer;
 }
-#context-menu div:hover {
+#context-menu div:hover,
+#msg-info div:hover {
   background-color: #b1b1b1;
 }

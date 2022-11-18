@@ -10,6 +10,10 @@ createApp({
         display: false,
         top: "0px",
         left: "0px",
+        selectedMsg: 0,
+      },
+      msgInfo: {
+        display: false,
       },
       searchQuery: "",
       contacts: [
@@ -221,9 +225,32 @@ createApp({
       return date.slice(0, 10);
     },
     showContextMenu(event) {
+      this.hideMenus();
       this.contextMenu.top = `${event.clientY}px`;
       this.contextMenu.left = `${event.clientX}px`;
       this.contextMenu.display = true;
+    },
+    hideMenus() {
+      if (this.contextMenu.display === true) {
+        this.contextMenu.top = `0px`;
+        this.contextMenu.left = `0px`;
+        this.contextMenu.display = false;
+      }
+      this.msgInfo.display = false;
+    },
+    getScope(index) {
+      this.contextMenu.selectedMsg = index;
+    },
+    deleteMsg() {
+      this.contacts[this.activeIndex].messages.splice(
+        this.contextMenu.selectedMsg,
+        1
+      );
+      this.hideMenus();
+    },
+    showMsgInfo() {
+      this.contextMenu.display = false;
+      this.msgInfo.display = true;
     },
   },
   created() {

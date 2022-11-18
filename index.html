@@ -33,7 +33,7 @@
     <!-- Vue target -->
     <div id="app" class="container flex">
       <!-- Contacts -->
-      <div class="col-4 flex column">
+      <div class="col-4 flex column" @click="hideMenus">
         <!-- User Header -->
         <div class="col-header flex space-between">
           <!-- User Details -->
@@ -104,7 +104,7 @@
         </div>
       </div>
       <!-- Messages -->
-      <div class="col-8 flex column">
+      <div class="col-8 flex column" @click="hideMenus">
         <!-- Recipient Header -->
         <div class="col-header flex item-70 space-between align-center">
           <div class="flex item-70 align-center">
@@ -132,12 +132,16 @@
           <div class="container">
             <!-- Message -->
             <div
-              v-for="message in contacts[activeIndex].messages"
+              v-for="(message, msgIndex) in contacts[activeIndex].messages"
               class="message flex align-center"
               :class="message.status"
-              @contextmenu.prevent="showContextMenu"
             >
-              <p>{{message.message}} <span>{{onlyTime(message.date)}}</span></p>
+              <p
+                @contextmenu.prevent="showContextMenu"
+                @contextmenu="getScope(msgIndex)"
+              >
+                {{message.message}} <span>{{onlyTime(message.date)}}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -158,8 +162,20 @@
         v-show="contextMenu.display"
         :style="`top: ${contextMenu.top}; left: ${contextMenu.left};`"
       >
-        <div>Cancella Messaggio</div>
-        <div>Dettagli Messaggio</div>
+        <div @click="deleteMsg">Cancella Messaggio</div>
+        <div @click="showMsgInfo">Dettagli Messaggio</div>
+      </div>
+      <div
+        id="msg-info"
+        v-show="msgInfo.display"
+        :style="`top: ${contextMenu.top}; left: ${contextMenu.left};`"
+      >
+        <div
+          v-if="msgInfo.display"
+          v-for="detail in contacts[activeIndex].messages[contextMenu.selectedMsg]"
+        >
+          {{detail}}
+        </div>
       </div>
     </div>
     <!-- Vue -->
