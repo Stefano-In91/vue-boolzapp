@@ -6,7 +6,11 @@ createApp({
       activeIndex: 0,
       sendMessage: "",
       notification: true,
-      contextMenu: false,
+      contextMenu: {
+        display: false,
+        top: "0px",
+        left: "0px",
+      },
       searchQuery: "",
       contacts: [
         {
@@ -217,12 +221,9 @@ createApp({
       return date.slice(0, 10);
     },
     showContextMenu(event) {
-      const menu = document.getElementById("context-menu");
-      const left = event.clientX;
-      const top = event.clientY;
-      menu.style.top = `${top}px`;
-      menu.style.left = `${left}px`;
-      this.contextMenu = true;
+      this.contextMenu.top = `${event.clientY}px`;
+      this.contextMenu.left = `${event.clientX}px`;
+      this.contextMenu.display = true;
     },
   },
   created() {
