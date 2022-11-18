@@ -22,6 +22,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Moment JS -->
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <!-- Vue JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <!-- Body -->
@@ -94,7 +98,7 @@
               </div>
             </div>
             <div class="message-time">
-              {{contact.messages[contact.messages.length - 1].date}}
+              {{onlyDate(contact.messages[contact.messages.length - 1].date)}}
             </div>
           </div>
         </div>
@@ -112,8 +116,8 @@
             <div class="recipient-data">
               <h3>{{contacts[activeIndex].name}}</h3>
               <p>
-                {{contacts[activeIndex].messages[contacts[activeIndex].messages.length
-                - 1].date}}
+                {{timeAgo(contacts[activeIndex].messages[contacts[activeIndex].messages.length
+                - 1].date)}}
               </p>
             </div>
           </div>
@@ -132,7 +136,7 @@
               class="message flex align-center"
               :class="message.status"
             >
-              <p>{{message.message}} <span>{{message.date}}</span></p>
+              <p>{{message.message}} <span>{{onlyTime(message.date)}}</span></p>
             </div>
           </div>
         </div>

@@ -179,14 +179,14 @@ createApp({
     addMessage() {
       let msgList = this.contacts[this.activeIndex].messages;
       msgList.push({
-        date: "lol",
+        date: moment().format("L") + " " + moment().format("LTS"),
         message: this.sendMessage,
         status: "sent",
       });
       this.sendMessage = "";
       setTimeout(() => {
         msgList.push({
-          date: "lol",
+          date: moment().format("L") + " " + moment().format("LTS"),
           message: "Ok",
           status: "received",
         });
@@ -206,5 +206,17 @@ createApp({
     closeNotification() {
       this.notification = false;
     },
+    timeAgo(date) {
+      return moment(date, "DD/MM/YYYY, hh:mm:ss").fromNow();
+    },
+    onlyTime(date) {
+      return date.slice(11);
+    },
+    onlyDate(date) {
+      return date.slice(0, 10);
+    },
+  },
+  created() {
+    moment.locale("it");
   },
 }).mount("#app");
