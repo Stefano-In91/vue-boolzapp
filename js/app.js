@@ -236,7 +236,9 @@ createApp({
         this.contextMenu.left = `0px`;
         this.contextMenu.display = false;
       }
-      this.msgInfo.display = false;
+      if (this.msgInfo.display === true) {
+        this.msgInfo.display = false;
+      }
     },
     getScope(index) {
       this.contextMenu.selectedMsg = index;
