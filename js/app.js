@@ -5,6 +5,8 @@ createApp({
     return {
       activeIndex: 0,
       sendMessage: "",
+      notification: true,
+      searchQuery: "",
       contacts: [
         {
           name: "Michele",
@@ -189,6 +191,20 @@ createApp({
           status: "received",
         });
       }, 1000);
+    },
+    searchInContacts() {
+      for (let i = 0; i < this.contacts.length; i++) {
+        const contact = this.contacts[i];
+        const name = contact.name.toLowerCase();
+        if (!name.includes(this.searchQuery)) {
+          contact.visible = false;
+        } else {
+          contact.visible = true;
+        }
+      }
+    },
+    closeNotification() {
+      this.notification = false;
     },
   },
 }).mount("#app");

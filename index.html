@@ -44,19 +44,33 @@
           </div>
         </div>
         <!-- Notification -->
-        <div class="notification flex item-80 align-center">
+        <div
+          class="notification flex item-80 align-center"
+          v-show="notification"
+        >
           <i class="fa-solid fa-bell-slash"></i>
           <div>
             <h3>Ricevi notifiche di nuovi messaggi</h3>
-            <a href="">Attiva notifiche desktop</a>
+            <a href="" @click.prevent="closeNotification"
+              >Attiva notifiche desktop</a
+            >
           </div>
+          <i class="fa-solid fa-x close-notif" @click="closeNotification"></i>
         </div>
         <!-- Search Form -->
-        <form action="submit" class="search-form flex">
-          <button type="submit">
+        <form
+          class="search-form flex"
+          @keypress.enter.prevent="searchInContacts"
+        >
+          <button @click.prevent="searchInContacts">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <input type="text" placeholder="Cerca chat" />
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Cerca chat"
+            @keyup="searchInContacts"
+          />
         </form>
         <!-- Contact/Message List -->
         <div class="message-list">
@@ -66,16 +80,17 @@
             class="flex align-center space space-between"
             :class="(activeIndex === index)?`selected`:``"
             @click="activeOnClick(index)"
+            v-show="contact.visible"
           >
             <div class="flex item-80">
               <img
                 class="avatar"
-                :src="'./img/avatar' + contact.avatar + `.jpg`"
+                :src="`./img/avatar${contact.avatar}.jpg`"
                 :alt="contact.name"
               />
               <div>
                 <h3>{{contact.name}}</h3>
-                <p>{{contact.messages[contact.messages.length - 1].date}}</p>
+                <p>{{contact.messages[contact.messages.length - 1].message}}</p>
               </div>
             </div>
             <div class="message-time">
@@ -91,7 +106,7 @@
           <div class="flex item-70 align-center">
             <img
               class="avatar"
-              :src="'./img/avatar' + contacts[activeIndex].avatar + `.jpg`"
+              :src="`./img/avatar${contacts[activeIndex].avatar}.jpg`"
               alt="contacts[activeIndex].name"
             />
             <div class="recipient-data">

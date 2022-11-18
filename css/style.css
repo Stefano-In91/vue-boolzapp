@@ -74,6 +74,7 @@ i {
   LEFT SECTION
 --------------*/
 .notification {
+  position: relative;
   background-color: #8edafc;
 }
 .notification i {
@@ -82,6 +83,13 @@ i {
   margin-right: 0.75rem;
   color: #8edafc;
   background-color: white;
+}
+i.close-notif {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  position: absolute;
+  top: -0.3125rem;
+  right: -0.3125rem;
 }
 .notification a {
   color: inherit;
@@ -105,7 +113,12 @@ i {
   overflow-y: scroll;
 }
 .message-list p {
+  display: block;
   color: #b1b1b1;
+  max-width: 25ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .recipient-data p,
 .message-time {
@@ -141,10 +154,12 @@ i {
 }
 .message p {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 45%;
   padding: 1rem;
   border-radius: 8px;
+  max-width: 30ch;
+  word-wrap: break-word;
 }
 .message span {
   position: absolute;
