@@ -192,26 +192,35 @@ createApp({
         message: this.sendMessage,
         status: "sent",
       });
-      this.sendMessage = "";
       if (contact.name === "Samuele") {
-        let quote;
-        axios.get("https://type.fit/api/quotes").then(function (response) {
-          quote = response.data[Math.floor(Math.random() * (1000 - 1) + 1)];
-        });
-        setTimeout(() => {
-          contact.messages.push({
-            date: moment().format("L") + " " + moment().format("LTS"),
-            message: quote.text,
-            status: "received",
+        if (this.sendMessage.toLowerCase().includes("grazie")) {
+          setTimeout(() => {
+            contact.messages.push({
+              date: moment().format("L") + " " + moment().format("LTS"),
+              message: "Di niente, giovane Padawan",
+              status: "received",
+            });
+          }, 1000);
+        } else {
+          let quote;
+          axios.get("https://type.fit/api/quotes").then(function (response) {
+            quote = response.data[Math.floor(Math.random() * (1000 - 1) + 1)];
           });
-        }, 1000);
-        setTimeout(() => {
-          contact.messages.push({
-            date: moment().format("L") + " " + moment().format("LTS"),
-            message: "Spero ti sia d'aiuto, giovane Padawan",
-            status: "received",
-          });
-        }, 1000);
+          setTimeout(() => {
+            contact.messages.push({
+              date: moment().format("L") + " " + moment().format("LTS"),
+              message: quote.text,
+              status: "received",
+            });
+          }, 1000);
+          setTimeout(() => {
+            contact.messages.push({
+              date: moment().format("L") + " " + moment().format("LTS"),
+              message: "Spero ti sia d'aiuto",
+              status: "received",
+            });
+          }, 1000);
+        }
       } else {
         setTimeout(() => {
           contact.messages.push({
@@ -221,6 +230,7 @@ createApp({
           });
         }, 1000);
       }
+      this.sendMessage = "";
     },
     searchInContacts() {
       for (let i = 0; i < this.contacts.length; i++) {
