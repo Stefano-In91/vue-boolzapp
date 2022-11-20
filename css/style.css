@@ -208,9 +208,10 @@ i.close-notif {
   padding: 0.5rem;
   text-align: center;
   border: 1px solid #b1b1b1;
+}
+#context-menu div {
   cursor: pointer;
 }
-#context-menu div:hover,
-#msg-info div:hover {
+#context-menu div:hover {
   background-color: #b1b1b1;
 }

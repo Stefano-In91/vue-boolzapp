@@ -186,20 +186,41 @@ createApp({
       this.activeIndex = index;
     },
     addMessage() {
-      let msgList = this.contacts[this.activeIndex].messages;
-      msgList.push({
+      let contact = this.contacts[this.activeIndex];
+      contact.messages.push({
         date: moment().format("L") + " " + moment().format("LTS"),
         message: this.sendMessage,
         status: "sent",
       });
       this.sendMessage = "";
-      setTimeout(() => {
-        msgList.push({
-          date: moment().format("L") + " " + moment().format("LTS"),
-          message: "Ok",
-          status: "received",
+      if (contact.name === "Samuele") {
+        let quote;
+        axios.get("https://type.fit/api/quotes").then(function (response) {
+          quote = response.data[Math.floor(Math.random() * (1000 - 1) + 1)];
         });
-      }, 1000);
+        setTimeout(() => {
+          contact.messages.push({
+            date: moment().format("L") + " " + moment().format("LTS"),
+            message: quote.text,
+            status: "received",
+          });
+        }, 1000);
+        setTimeout(() => {
+          contact.messages.push({
+            date: moment().format("L") + " " + moment().format("LTS"),
+            message: "Spero ti sia d'aiuto, giovane Padawan",
+            status: "received",
+          });
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          contact.messages.push({
+            date: moment().format("L") + " " + moment().format("LTS"),
+            message: "Ok",
+            status: "received",
+          });
+        }, 1000);
+      }
     },
     searchInContacts() {
       for (let i = 0; i < this.contacts.length; i++) {
