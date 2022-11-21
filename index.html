@@ -117,10 +117,7 @@
             />
             <div class="recipient-data">
               <h3>{{contacts[activeIndex].name}}</h3>
-              <p>
-                {{timeAgo(contacts[activeIndex].messages[contacts[activeIndex].messages.length
-                - 1].date)}}
-              </p>
+              <p>{{lastSeen}}</p>
             </div>
           </div>
           <div class="flex align-center">

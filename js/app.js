@@ -4,7 +4,7 @@ createApp({
   data() {
     return {
       activeIndex: 0,
-      sendMessage: "",
+      lastSeen: "",
       notification: true,
       contextMenu: {
         display: false,
@@ -16,6 +16,7 @@ createApp({
         display: false,
       },
       searchQuery: "",
+      sendMessage: "",
       contacts: [
         {
           name: "Michele",
@@ -184,6 +185,7 @@ createApp({
   methods: {
     activeOnClick(index) {
       this.activeIndex = index;
+      this.timeAgo();
     },
     addMessage() {
       let contact = this.contacts[this.activeIndex];
@@ -192,6 +194,7 @@ createApp({
         message: this.sendMessage,
         status: "sent",
       });
+      this.timeAgo();
       if (contact.name === "Samuele") {
         if (this.sendMessage.toLowerCase().includes("grazie")) {
           setTimeout(() => {
@@ -201,6 +204,7 @@ createApp({
               status: "received",
             });
           }, 1000);
+          this.timeAgo();
         } else {
           let quote;
           axios.get("https://type.fit/api/quotes").then(function (response) {
@@ -213,6 +217,7 @@ createApp({
               status: "received",
             });
           }, 1000);
+          this.timeAgo();
           setTimeout(() => {
             contact.messages.push({
               date: moment().format("L") + " " + moment().format("LTS"),
@@ -220,6 +225,7 @@ createApp({
               status: "received",
             });
           }, 1000);
+          this.timeAgo();
         }
       } else {
         setTimeout(() => {
@@ -229,6 +235,7 @@ createApp({
             status: "received",
           });
         }, 1000);
+        this.timeAgo();
       }
       this.sendMessage = "";
     },
@@ -246,8 +253,13 @@ createApp({
     closeNotification() {
       this.notification = false;
     },
-    timeAgo(date) {
-      return moment(date, "DD/MM/YYYY, hh:mm:ss").fromNow();
+    timeAgo() {
+      this.lastSeen = moment(
+        this.contacts[this.activeIndex].messages[
+          this.contacts[this.activeIndex].messages.length - 1
+        ].date,
+        "DD/MM/YYYY, hh:mm:ss"
+      ).fromNow();
     },
     onlyTime(date) {
       return date.slice(11);
@@ -288,5 +300,8 @@ createApp({
   },
   created() {
     moment.locale("it");
+  },
+  mounted() {
+    this.timeAgo();
   },
 }).mount("#app");
