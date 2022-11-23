@@ -96,10 +96,15 @@
               />
               <div>
                 <h3>{{contact.name}}</h3>
-                <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                <p v-if="contact.messages[contact.messages.length - 1]">
+                  {{contact.messages[contact.messages.length - 1].message}}
+                </p>
               </div>
             </div>
-            <div class="message-time">
+            <div
+              class="message-time"
+              v-if="contact.messages[contact.messages.length - 1]"
+            >
               {{onlyDate(contact.messages[contact.messages.length - 1].date)}}
             </div>
           </div>

@@ -243,7 +243,7 @@ createApp({
       for (let i = 0; i < this.contacts.length; i++) {
         const contact = this.contacts[i];
         const name = contact.name.toLowerCase();
-        if (!name.includes(this.searchQuery)) {
+        if (!name.includes(this.searchQuery.toLowerCase())) {
           contact.visible = false;
         } else {
           contact.visible = true;
